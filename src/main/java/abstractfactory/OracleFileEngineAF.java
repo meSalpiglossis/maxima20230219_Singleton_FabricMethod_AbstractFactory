@@ -1,46 +1,46 @@
 package abstractfactory;
 
 import documents.*;
-import documents.apple.AppleDoc;
-import documents.google.GoogleDoc;
-import documents.ibm.IBMDoc;
-import documents.ms.*;
-import documents.oracle.OracleDoc;
+import documents.ms.MSTableComplex;
+import documents.ms.MSTableHierarchical;
+import documents.ms.MSTableSimple;
+import documents.oracle.*;
 import utils.Randomiser;
 
-public class MSFileEngineAF implements IFileEngineAF {
+public class OracleFileEngineAF implements IFileEngineAF {
+
     @Override
     public IDoc createDoc() {
-        return new MSDoc();
+        return new OracleDoc();
     }
 
     @Override
     public ITable createTable() {
         switch (Randomiser.getRandomTableType()) {
             case 0 -> {
-                return new MSTableComplex();
+                return new OracleTableComplex();
             }
             case 1 -> {
-                return new MSTableHierarchical();
+                return new OracleTableHierarchical();
             }
             default -> {
-                return new MSTableSimple();
+                return new OracleTableSimple();
             }
         }
     }
 
     @Override
     public IEmail createEmail() {
-        return new MSEmail();
+        return new OracleEmail();
     }
 
     @Override
     public IMsg createMsg() {
-        return new MSMsg();
+        return new OracleMsg();
     }
 
     @Override
     public IAVMsg createAVMsg() {
-        return new MSAVMsg();
+        return new OracleAVMsg();
     }
 }

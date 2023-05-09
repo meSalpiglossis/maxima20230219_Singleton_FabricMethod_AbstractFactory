@@ -1,10 +1,10 @@
-import static utils.Randomiser.getRandom;
+import static utils.Randomiser.getRandomSystem;
 
 public class Main {
     public static void main(String[] args) {
 
         for (int i = 0; i < 100; i++) {
-            System.out.print(getRandom(1,5));
+            System.out.print(getRandomSystem());
         }
 
     }
