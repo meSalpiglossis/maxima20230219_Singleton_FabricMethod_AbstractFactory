@@ -1,5 +1,7 @@
 package abstractfactory;
 
+import documents.*;
+
 public class MSFileEngineAF implements IFileEngineAF {
     @Override
     public IDoc createDoc() {

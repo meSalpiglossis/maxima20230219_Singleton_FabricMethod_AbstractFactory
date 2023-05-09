@@ -1,5 +1,7 @@
 package factorymethod;
 
+import documents.*;
+
 public class FileEngine {
 
     private static FileEngine instance;
@@ -38,7 +40,7 @@ public class FileEngine {
     //Factory method #4
     public IMsg createMsg() {
         //TODO: Add complex logic
-        return new MSMsgComplex();
+        return new MSMsg();
     }
 
     //Factory method #5
