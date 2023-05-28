@@ -8,7 +8,7 @@ public class Main {
         IFileEngineAF fileEngineAF = ConfigurationEngine.createFileEngineAF();
 
         IDoc docForNewEmployeeConsistent      = fileEngineAF.createDoc();
-        ITable tableForNewEmployeeConsistent  = fileEngineAF.createTable();
+        ITableAF tableForNewEmployeeConsistent  = fileEngineAF.createTable();
         IEmail emailForNewEmployeeConsistent  = fileEngineAF.createEmail();
         IMsg msgForNewEmployeeConsistent      = fileEngineAF.createMsg();
         IAVMsg avmsgForNewEmployeeConsistent  = fileEngineAF.createAVMsg();

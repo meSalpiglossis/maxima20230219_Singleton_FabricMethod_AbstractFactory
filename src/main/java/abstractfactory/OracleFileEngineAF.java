@@ -1,11 +1,9 @@
 package abstractfactory;
 
 import documents.*;
-import documents.ms.MSTableComplex;
-import documents.ms.MSTableHierarchical;
-import documents.ms.MSTableSimple;
 import documents.oracle.*;
-import utils.Randomiser;
+
+import static utils.RandomSubTypeGenerator.getRandomSubType;
 
 public class OracleFileEngineAF implements IFileEngineAF {
 
@@ -15,18 +13,8 @@ public class OracleFileEngineAF implements IFileEngineAF {
     }
 
     @Override
-    public ITable createTable() {
-        switch (Randomiser.getRandomTableType()) {
-            case 0 -> {
-                return new OracleTableComplex();
-            }
-            case 1 -> {
-                return new OracleTableHierarchical();
-            }
-            default -> {
-                return new OracleTableSimple();
-            }
-        }
+    public ITableAF createTable() {
+        return getRandomSubType(ITableOracle.class);
     }
 
     @Override

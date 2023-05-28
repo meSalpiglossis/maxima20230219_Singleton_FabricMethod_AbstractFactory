@@ -6,7 +6,7 @@ public interface IFileEngineAF {
 
     IDoc createDoc();
 
-    ITable createTable();
+    ITableAF createTable();
 
     IEmail createEmail();
 

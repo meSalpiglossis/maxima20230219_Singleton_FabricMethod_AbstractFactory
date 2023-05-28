@@ -1,32 +1,20 @@
 package abstractfactory;
 
 import documents.*;
-import documents.apple.AppleDoc;
-import documents.google.GoogleDoc;
-import documents.ibm.IBMDoc;
 import documents.ms.*;
-import documents.oracle.OracleDoc;
-import utils.Randomiser;
+
+import static utils.RandomSubTypeGenerator.getRandomSubType;
 
 public class MSFileEngineAF implements IFileEngineAF {
+
     @Override
     public IDoc createDoc() {
         return new MSDoc();
     }
 
     @Override
-    public ITable createTable() {
-        switch (Randomiser.getRandomTableType()) {
-            case 0 -> {
-                return new MSTableComplex();
-            }
-            case 1 -> {
-                return new MSTableHierarchical();
-            }
-            default -> {
-                return new MSTableSimple();
-            }
-        }
+    public ITableAF createTable() {
+        return getRandomSubType(ITableMS.class);
     }
 
     @Override

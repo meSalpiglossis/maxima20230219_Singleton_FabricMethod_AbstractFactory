@@ -2,10 +2,8 @@ package abstractfactory;
 
 import documents.*;
 import documents.apple.*;
-import documents.google.GoogleTableComplex;
-import documents.google.GoogleTableHierarchical;
-import documents.google.GoogleTableSimple;
-import utils.Randomiser;
+
+import static utils.RandomSubTypeGenerator.getRandomSubType;
 
 public class AppleFileEngineAF implements IFileEngineAF {
 
@@ -15,18 +13,8 @@ public class AppleFileEngineAF implements IFileEngineAF {
     }
 
     @Override
-    public ITable createTable() {
-        switch (Randomiser.getRandomTableType()) {
-            case 0 -> {
-                return new AppleTableComplex();
-            }
-            case 1 -> {
-                return new AppleTableHierarchical();
-            }
-            default -> {
-                return new AppleTableSimple();
-            }
-        }
+    public ITableAF createTable() {
+        return getRandomSubType(ITableAF.class);
     }
 
     @Override
